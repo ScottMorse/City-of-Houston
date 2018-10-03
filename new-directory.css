@@ -1,0 +1,363 @@
+:root{
+    --nav-break-marg: 30vw; /*a fix to the collapsing nav links in desktop */
+    --home-path-l: 10px;
+    --dir-width: 86vw;
+    --left-pad: 1em;
+}
+
+@media screen and (max-width: 768px){
+    #banner {
+        height: 16em;
+        margin-top: -14em;
+        z-index: 1;
+    }
+    #banner > div > header > span {
+        display: none !important;
+    }
+
+    header > h2 {
+        margin-top: 4.5em;
+    }
+
+    #logo{
+        background: none;
+        margin-top: -1em;
+        z-index: 2;
+    }
+    #logo > a{
+        background: none;
+    }
+    #header{
+        background: none;
+    }
+    #home-path{
+        position: absolute;
+        transform: translateY(2em);
+        z-index: 1;
+        width: 100vw;
+        padding-left: 10px;
+        margin-left: 0 !important;
+        background-color: rgb(184, 186, 189);
+    }
+    #main {
+        padding-top: 2em;
+    }
+
+    .deptTitle {
+        margin-bottom: 0.2em;
+    }
+
+    #subtitle {
+        margin-bottom: 2em;
+    }
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --home-path-l: 20px;
+        --main-pad-top: inherit;
+        --no-mobile: block;
+        --dir-width: 63vw;
+        --left-pad: 5em;
+    }
+}
+
+@media screen and (min-width: 880px){
+    :root{
+        --nav-break-marg: 34vw;/*a fix to the collapsing nav links in desktop */
+    }
+}
+
+@media screen and (min-width: 1080px){
+    :root{
+        --nav-break-marg: 34vw;/*a fix to the collapsing nav links in desktop */
+        --home-path-l: 8vw;
+        --dir-width: 55vw;
+    }
+}
+
+@media screen and (min-width: 1280px){
+    :root{
+        --nav-break-marg: 41vw;/*a fix to the collapsing nav links in desktop */
+    }
+}
+
+/*a fix to the collapsing nav links in desktop */
+#nav > ul {
+    display: flex;
+    width: 80vw;
+    justify-content: flex-start;
+}
+/*a fix to the collapsing nav links in desktop */
+#nav > ul > li.break {
+    margin-left: var(--nav-break-marg);
+}
+
+/*changed the location of the home path to above the banner*/
+#home-path {
+    margin-left: var(--home-path-l);
+}
+
+/*Centered the City Directory h2*/
+.deptTitle {
+    text-align: center;
+}
+
+.dir-header{
+    width: var(--dir-width);
+    background-color: rgb(219, 220, 224);
+    background-image: linear-gradient(10deg,rgb(227, 227, 235),rgb(192, 192, 199));
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+#main h3{
+    padding: 0 0 0 10px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    color: rgb(5, 5, 168);
+    font-weight: 600;
+}
+
+#subtitle {
+    text-align: center;
+}
+
+.dir-header {
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.05);
+    margin-bottom: 4px;
+}
+
+.dir-header:hover{
+    cursor: pointer;
+}
+
+.hamburger {
+    margin-left: 10px;
+}
+
+.ham-line {
+    width: 40px;
+    height: 2px;
+    background-image: linear-gradient(10deg,rgb(29, 29, 126),rgb(28, 28, 255));
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.05);
+    align-self: flex-end;
+    filter: blur(0.5px);
+    -webkit-filter: blur(0.5px);
+}
+
+.ham1 {
+    margin-bottom: 5px;
+}
+
+.ham2 {
+    margin-bottom: 5px;
+}
+
+.dir-cont-wrap {
+    display: flex;
+    max-height: 0em;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    transition: max-height 2s linear, opacity 1s ease;
+    width: var(--dir-width);
+    z-index: -1;
+}
+
+.dir-cont-wrap.open {
+    max-height: 100em;
+    opacity: 1;
+}
+
+.dir-cont-wrap.open > h4 {
+    display: flex;
+}
+
+h4 {
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 5px;
+    background-image: linear-gradient(140deg, rgb(240, 238, 238),rgb(230, 229, 229));
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+    display: none;
+    justify-content: space-between;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+
+h4:hover {
+    cursor: pointer;
+}
+
+.plus {
+    justify-self: flex-end;
+    font-size: 1.8em;
+    font-weight: lighter;
+    color: rgb(171, 165, 165);
+}
+
+.cont-details {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    max-height: 0em;
+    transition: max-height 0.5s linear, opacity 0.5s ease-in;
+}
+
+.cont-details.open {
+    opacity: 1;
+    max-height: 30em;
+}
+
+.cont-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0.8em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.detail-main-link {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0.5em;
+    text-align: center;
+}
+
+.contact-link > img {
+    height: 2.5em;
+    margin-bottom: 1em;
+}
+
+.teaser-img{
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.3);
+    height: 150px;
+    width: 150px;
+    margin-bottom: 0.5em;
+}
+
+.split-wrap {
+    display: flex;
+    flex-direction: row;
+    width: var(--dir-width);
+    margin-top: 1em;
+}
+
+.splitter {
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.splitter.left {
+    align-items: flex-start;
+    padding-left: var(--left-pad);
+}
+
+.splitter.center {
+    justify-content: center;
+}
+
+.quick-links {
+    border-left: 4px double black;
+    height: 18em;
+}
+
+.quick-list {
+    font-weight: bold;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.quick-link {
+    font-weight: normal;
+}
+
+.quick-link-li > * {
+    margin-left: -0.7em;
+    white-space: no-wrap;
+}
+
+.quick-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0.6em 0 1.5em 0;
+
+    text-align: center;
+}
+
+.director-title {
+    font-weight: bold;
+}
+
+.quick-social {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quick-social-link {
+    height: 1em;
+    width: 1em;
+    margin: 0.1em;
+    transform: translateY(1em);
+}
+
+#mayor-img {
+    background-image: url('http://www.houstontx.gov/mayor/images/turner200x250.jpg');
+    background-position: center -20px;
+}
+
+#controller-img{
+    background-image: url('http://www.houstontx.gov/controller/images/CBHeadshot.jpg');
+    background-position: center -10px;
+}
+
+#council-A-img{
+    background-image: url("http://www.houstontx.gov/council/a/images/stardig.jpg");
+}
+
+#council-B-img{
+    background-image: url("http://www.houstontx.gov/council/b/images/davis.jpg");
+}
+
+#council-C-img{
+    background-image: url("http://www.houstontx.gov/council/c/images/cohen.jpg");
+}
+
+#ara-director-img{
+    background-image: url("https://www.houstontx.gov/ara/images/parkerandpaez-small.jpg");
+    background-position: -58px 0;
+}
+
+#aviation-img {
+    background-image: url("https://2ycb5020s21k3isiq1zauejt-wpengine.netdna-ssl.com/wp-content/uploads/sites/75/2018/05/mario_diaz-120x150.jpg");
+    background-position: 15px;
+    background-repeat: no-repeat;
+    background-color: rgb(228, 228, 177);
+}
+
+#city-sec-img {
+    background-image: url("http://www.houstontx.gov/citysec/images/russell.jpg");
+}
+
+#finance-img {
+    background-image: url("http://www.houstontx.gov/finance/images/Tantri.png");
+}
+
+#fire-img {
+    background-image: url("https://houstontx.gov/fire/divisions/images/pena.jpg");
+    background-position: 15px 2px;
+    background-color: rgb(51, 49, 49);
+    background-repeat: no-repeat;
+}
